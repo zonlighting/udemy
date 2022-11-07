@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import ssv.com.udemy.dto.CustomerDTO;
 import ssv.com.udemy.dto.CustomerListDTO;
 import ssv.com.udemy.services.CustomerService;
 
+@Api(description = "This is my Customer Controller")
 @Controller
 @RequestMapping("/api/v1/customers")
 public class CustomerController {
@@ -26,6 +29,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @ApiOperation(value = "abc", notes = "xyz")
     @GetMapping
     public ResponseEntity<CustomerListDTO> getListofCustomers() {
 
